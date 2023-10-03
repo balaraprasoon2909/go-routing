@@ -18,7 +18,10 @@ func main() {
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the Home Page!")
+	welcomeMessage := map[string]string{
+		"message": "welcome to the golang back end dev project",
+	}
+	json.NewEncoder(w).Encode(welcomeMessage)
 }
 
 func CredentialsHandler(w http.ResponseWriter, r *http.Request) {
